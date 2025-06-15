@@ -1,0 +1,249 @@
+:root{
+    --primary-color: #EE4D2D;
+    --white-color:#fff;
+    --black-color:#000;
+    --text-color:#333;
+    --border-color:#dbdbdb;
+    --star-gold-color:#ffce3e;
+    --navbar-height: 34px;
+    --header-height: 120px;
+    --header-with-search: calc(var(--header-height) - var(--navbar-height));
+    --header-sort-bar-height: 46px
+}
+
+*{
+    box-sizing: inherit;
+    /* Kế thừa  */
+}
+
+html{
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: "Roboto", sans-serif;
+     box-sizing: border-box;
+}
+
+/* Responsive */
+
+
+.grid__row{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -5px;
+    margin-right: -5px;
+
+}
+
+
+
+/* Test css */
+.grid__column-2{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 16.6667%;
+}
+.grid__column-2-4{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 20%;
+}
+.grid__column-10{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 83.3334%;
+
+}
+
+    /* Animation */
+
+    @keyframes fadeIn{
+        from{
+            opacity: 0;
+        }
+        to{
+            opacity: 1;
+        }
+    }
+
+.btn{
+    display:inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+    background-color: var(--white-color);
+    min-width: 142px;
+    height: 34px;
+    font-size: 1.5rem;
+    text-decoration: none;
+    border: none;
+    border-radius: 2px;
+    padding:0;
+    cursor: pointer;
+    padding: 0 12px;
+
+}
+
+.btn.btn--normal:hover{
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.btn.btn--primary{
+    background-color: var(--primary-color);
+    color:var(--white-color)
+}
+.btn.btn--size-s{
+    padding: 0 8px;
+    height: 32px;
+    font-size: 12px;
+}
+
+/* Selection */
+.select-input{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    height: 34px;
+    border-radius: 2px;
+    min-width: 200px;
+    background-color: var(--white-color);
+
+}
+
+.select-input:hover .select-input__list{
+    display: block;
+}
+.select-input__label{
+
+    font-size: 1.4rem;
+
+}
+.select-input__icon{
+    font-size: 1.4rem;
+    color: rgba(131, 131, 131);
+    position: relative;
+    top:1px;
+}
+
+.select-input__list{
+    display: none;
+position: absolute;
+top:25px;
+right: 0;
+left: 0;
+border-radius: 2px;
+background-color: var(--white-color);
+padding: 8px 16px;
+list-style: none;
+z-index: 1;
+}
+
+.select-input__item{
+
+
+}
+
+.select-input__link{
+display: block;
+padding: 4px 0;
+text-decoration: none;
+font-size: 1.2rem;
+color: var(--text-color);
+}
+
+
+.select-input__link:hover{
+    color: var(--primary-color);
+}
+
+.home-filter__page{
+display: flex;
+align-items: center;
+margin-left: auto;
+}
+.home-filter__page-num{
+font-size: 1.4rem;
+font-weight: 400;
+color: var(--text-color);
+margin-right: 22px;
+}
+.home-filter__page-current{
+color: var(--primary-color);
+}
+
+.home-filter__page-control{
+display: flex;
+width: 72px;
+height: 36px;
+background-color: var(--white-color);
+border-radius: 2px;
+overflow: hidden;
+}
+/* Flex 1 để tự chia đôi */
+.home-filter__page-btn{
+display: flex;
+flex:1;
+text-decoration: none;
+}
+.home-filter__page-btn--disabled{
+    background-color: #f9f9f9;
+}
+.home-filter__page-icon{
+margin: auto;
+font-size: 1.2rem;
+color: #555555;
+}
+
+.home-filter__page-btn:first-child{
+border-right: 1px solid #eee;
+}   
+/* CSS đến thẻ a nên phải gọi tới  */
+.home-filter__page-btn--disabled .home-filter__page-icon{
+    color: #ccc;
+}
+
+/* Phân Trang */
+.pagination{
+display: flex;
+list-style: none;
+justify-content: center;
+align-items: center;
+}
+.pagination-item{
+margin: 0 12px;
+}
+.pagination-item__link{
+/* Lưu ý thẻ display block để thẻ a đúng kích thước */
+display: block;
+text-decoration: none;
+font-size: 2rem;
+font-weight: 300;
+color:#939393;
+/* đặt min width dể số lớn thì khoảng cách tự cách ra */
+min-width: 40px;
+/* Đặt biến local để khi thay đổi chiều cao, các thành phần khác cũng thay đổi */
+--height: 30px;
+height: var(--height);
+/* Căn giữa theo chiều dọc bằng cách ch line height = height */
+line-height: var(--height);
+text-align: center;
+border-radius: 2px;
+}
+.pagination-item__icon{
+
+}
+/*gọi trực tiếp đến thẻ a nếu css không hiệu quả */
+.pagination-item--active .pagination-item__link{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.pagination-item--active .pagination-item__link:hover{
+    opacity: 0.9;
+}
+
+
+.home__product__pagination{
+margin: 48px 0 32px 0;
+}
